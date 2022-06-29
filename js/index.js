@@ -2,14 +2,24 @@
 //import { RoundedBoxGeometry } from './threejs/examples/jsm/geometries/RoundedBoxGeometry.js'
 const scene = new THREE.Scene();
 scene.background = new THREE.Color('#f5e8ef');
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 const renderer = new THREE.WebGLRenderer(); //a WEBGL renderer is the most flexible
 //const geometry = new RoundedBoxGeometry( 10, 10, 10, 6, 2 );
 //to display anything with three.js we need three things: scene, camera and renderer, so that we can render the scene with camera.
 // 75 refers to the field of view - the extent of the scene on the display at any given moment. innerWidth / innerHeight is the aspect ration. 0.1, 1000 refers to the near and far clipping plane. 
 
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement ); //create the canvas element
+const container = document.querySelector('.container');
+
+const width  = 640;
+const height = 640;
+
+container.appendChild(renderer.domElement)
+//document.body.appendChild( renderer.domElement ); //create the canvas element
+//renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setSize(width, height);
+
+//document.body.appendChild( container );
+//container.appendChild( renderer.domElement );
 
 const geometry = new THREE.BoxGeometry( 2, 2, 2 ); // size/radius, width, height
 const material = new THREE.MeshBasicMaterial( { color: 0xEEEEEE } ); //this is the colour of the 3D material
@@ -58,7 +68,8 @@ function getRandomNumber(min, max) {
 //animate after the user has clicked 
 //add event listener on the cube to listen for a click and spin
 
-/*var rotateCube = document.querySelector('.celtra-cube');
+/*
+var rotateCube = document.querySelector('.celtra-cube');
 unit.deg -= 90;
 rotateCube.style.transition = '2s';
 rotateCube.style.transform = `translateZ(${-750}px) rotateY(${unit.deg}deg)`;
@@ -84,4 +95,5 @@ function spin() {
   }, 2000);
 }
 
-spin(); */
+spin()
+*/
