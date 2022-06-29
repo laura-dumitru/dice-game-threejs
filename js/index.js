@@ -1,8 +1,11 @@
 
 //import { RoundedBoxGeometry } from './threejs/examples/jsm/geometries/RoundedBoxGeometry.js'
+
+let clicked = false; 
+
 const scene = new THREE.Scene();
 scene.background = new THREE.Color('#f5e8ef');
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.1, 1000 );
 const renderer = new THREE.WebGLRenderer(); //a WEBGL renderer is the most flexible
 //const geometry = new RoundedBoxGeometry( 10, 10, 10, 6, 2 );
 //to display anything with three.js we need three things: scene, camera and renderer, so that we can render the scene with camera.
@@ -21,7 +24,7 @@ renderer.setSize(width, height);
 //document.body.appendChild( container );
 //container.appendChild( renderer.domElement );
 
-const geometry = new THREE.BoxGeometry( 2, 2, 2 ); // size/radius, width, height
+const geometry = new THREE.BoxGeometry(1, 1, 1); // size/radius, width, height
 const material = new THREE.MeshBasicMaterial( { color: 0xEEEEEE } ); //this is the colour of the 3D material
 //const cube = new THREE.Mesh( geometry, material );
 
@@ -48,8 +51,8 @@ camera.position.z = 8;
 
 function animate() { 
 	requestAnimationFrame(animate); // this creates a loop that draws the cube every time the screen refreshes, it pauses when the user navigates to a different tab.
-    cube.rotation.x += 0.05; //this rotates it at the speed I give it. 0.01 is very slow. 
-    cube.rotation.y += 0.05;
+    //cube.rotation.x += 0.05; //this rotates it at the speed I give it. 0.01 is very slow. 
+    //cube.rotation.y += 0.05;
 
 	renderer.render( scene, camera ); //if this is not called, nothing will show.
 }
@@ -62,7 +65,28 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-//console.log(getRandomNumber(1, 7))
+function spin() {
+  let degrees = Math.PI / 16; // 45°
+  cube.rotation.y += degrees;
+  cube.rotation.x += degrees;
+}
+
+container.addEventListener('click', function() {
+  let countdown = 50; // x ms
+  animation = setInterval(function() {
+    countdown --;
+    if (countdown === 0) {
+      cube.rotation.y = 0.2;
+      cube.rotation.x = 0.2;
+      clearInterval(animation)
+    }
+    spin()
+  }, 100); // ms
+
+  clicked = true;
+  getRandomNumber(1, 7);
+})
+
 
 
 //animate after the user has clicked 
