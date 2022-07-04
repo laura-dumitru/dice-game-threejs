@@ -6,7 +6,7 @@ let clicked = false;
 const scene = new THREE.Scene();
 scene.background = new THREE.Color('#f5e8ef');
 const camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.1, 1000 );
-const renderer = new THREE.WebGLRenderer(); //a WEBGL renderer is the most flexible
+const renderer = new THREE.WebGLRenderer(); //combines the scene and camera together; a WEBGL renderer is the most flexible
 //const geometry = new RoundedBoxGeometry( 10, 10, 10, 6, 2 );
 //to display anything with three.js we need three things: scene, camera and renderer, so that we can render the scene with camera.
 // 75 refers to the field of view - the extent of the scene on the display at any given moment. innerWidth / innerHeight is the aspect ration. 0.1, 1000 refers to the near and far clipping plane. 
@@ -39,52 +39,56 @@ const materials = [
 ];
 //const texture = loader.load('images/quick.jpg');
 
-const cube = new THREE.Mesh(geometry, materials);
-scene.add(cube);
+const cube = new THREE.Mesh(geometry, materials)
+scene.add(cube)
  
 /*const geometry1 = new THREE.SphereGeometry( 15, 32, 16 );
 const material1 = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
 const sphere = new THREE.Mesh( geometry1, material1 );
 scene.add( sphere );
 */
-camera.position.z = 8;
+camera.position.z = 8
 
 function animate() { 
-	requestAnimationFrame(animate); // this creates a loop that draws the cube every time the screen refreshes, it pauses when the user navigates to a different tab.
+	requestAnimationFrame(animate) // this creates a loop that draws the cube every time the screen refreshes, it pauses when the user navigates to a different tab.
     //cube.rotation.x += 0.05; //this rotates it at the speed I give it. 0.01 is very slow. 
     //cube.rotation.y += 0.05;
 
-	renderer.render( scene, camera ); //if this is not called, nothing will show.
+	renderer.render( scene, camera ) //if this is not called, nothing will show.
 }
-animate();
-
+animate()
 
 function getRandomNumber(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min);
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min) + min)
 }
 
 function spin() {
-  let degrees = Math.PI / 16; // 45°
-  cube.rotation.y += degrees;
-  cube.rotation.x += degrees;
+  let degrees = Math.PI / 16 // 45°
+  cube.rotation.y += degrees
+  cube.rotation.x += degrees
 }
 
 container.addEventListener('click', function() {
-  let countdown = 50; // x ms
-  animation = setInterval(function() {
-    countdown --;
-    if (countdown === 0) {
-      cube.rotation.y = 0.2;
-      cube.rotation.x = 0.2;
-      clearInterval(animation)
-    }
-    spin()
-  }, 100); // ms
+  let countdown = 30; // x ms]
+  if (!clicked) {
+    clicked = true
 
-  clicked = true;
-  getRandomNumber(1, 7);
+    animation = setInterval(function() {
+      countdown --
+      if (countdown === 0) {
+        const snap = 16.9
+        cube.rotation.y = snap
+        cube.rotation.x = snap
+        clearInterval(animation)
+      }
+      spin()
+    }, 50) // ms
+  }
+
+  const faces = [0, 0, 7.30, 4.5, 3, 0] // dice faces 1–6
+  //let face = faces[getRandomNumber(1,7)]
 })
 
 
