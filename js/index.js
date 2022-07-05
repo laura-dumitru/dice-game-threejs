@@ -2,18 +2,17 @@
 //import { RoundedBoxGeometry } from './threejs/examples/jsm/geometries/RoundedBoxGeometry.js'
 
 let clicked = false
-
 const scene = new THREE.Scene()
-scene.background = new THREE.Color('#f5e8ef') // by default this is black
-const camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000 )
+scene.background = new THREE.Color('#da5552') // by default this is black
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000 )
 const renderer = new THREE.WebGLRenderer() //combines the scene and camera together; a WEBGL renderer is the most flexible
 //const geometry = new RoundedBoxGeometry( 10, 10, 10, 6, 2 )
 //to display anything with three.js we need three things: scene, camera and renderer, so that we can render the scene with camera.
 // 75 refers to the field of view - the extent of the scene on the display at any given moment. innerWidth / innerHeight is the aspect ration. 0.1, 1000 refers to the near and far clipping plane. 
 const container = document.querySelector('.container')
 
-const width  = 512
-const height = 512
+const width  = window.innerWidth
+const height = window.innerHeight
 
 container.appendChild(renderer.domElement)
 //document.body.appendChild(renderer.domElement) //create the canvas element
@@ -99,5 +98,13 @@ container.addEventListener('click', function() {
   }
 })
 
-//animate after the user has clicked 
-//add event listener on the cube to listen for a click and spin
+window.addEventListener( 'resize', onWindowResize, false );
+
+function onWindowResize(){
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
