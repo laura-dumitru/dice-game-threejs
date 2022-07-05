@@ -4,7 +4,7 @@
 let clicked = false
 
 const scene = new THREE.Scene()
-scene.background = new THREE.Color('#f5e8ef')
+scene.background = new THREE.Color('#f5e8ef') // by default this is black
 const camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000 )
 const renderer = new THREE.WebGLRenderer() //combines the scene and camera together; a WEBGL renderer is the most flexible
 //const geometry = new RoundedBoxGeometry( 10, 10, 10, 6, 2 )
@@ -17,7 +17,6 @@ const height = 512
 
 container.appendChild(renderer.domElement)
 //document.body.appendChild(renderer.domElement) //create the canvas element
-//renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setSize(width, height)
 
 const geometry = new THREE.BoxGeometry(1, 1, 1) // size/radius, width, height
@@ -33,7 +32,7 @@ const materials = [
   new THREE.MeshBasicMaterial({map: loader.load('images/five.png')}),
   new THREE.MeshBasicMaterial({map: loader.load('images/six.png')}),
 ];
-//const texture = loader.load('images/quick.jpg')
+
 
 const cube = new THREE.Mesh(geometry, materials)
 scene.add(cube)
@@ -41,17 +40,16 @@ camera.position.z = 8
 
 function animate() { 
 	requestAnimationFrame(animate) // this creates a loop that draws the cube every time the screen refreshes, it pauses when the user navigates to a different tab.
-  
   //cube.rotation.x += 0.06 //this rotates it at the speed I give it. 0.01 is very slow. 
   //cube.rotation.y += 0.04
 
-	renderer.render(scene, camera) //if this is not called, nothing will show.
+renderer.render(scene, camera) //if this is not called, nothing will show.
 }
 animate()
 
 function getRandomNumber(min, max) {
   min = Math.ceil(min)
-  max = Math.floor(max) + 1
+  max = Math.floor(max) + 1 //get a random number between 1-6 would not show me 6, so I added 1. 
   return Math.floor(Math.random() * (max - min) + min)
 }
 
@@ -85,7 +83,16 @@ container.addEventListener('click', function() {
         clearInterval(animation)
         clicked = false
 
-        console.log(`You rolled a ${number}`)
+        console.log(number)
+
+        //if (number === 6) setTimeout(() => alert(`Congrats! You rolled a ${number}.`), 100)
+
+        if (number === 6) {
+          setTimeout(function() {
+            alert(`Congrats! You rolled a ${number}.`)
+          }, 100)
+        }
+
       }
       spin()
     }, 40) // ms
