@@ -3,7 +3,7 @@
 
 let clicked = false
 const scene = new THREE.Scene()
-scene.background = new THREE.Color('#da5552') // by default this is black
+scene.background = new THREE.Color('#ee7674') // by default this is black
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000 )
 const renderer = new THREE.WebGLRenderer() //combines the scene and camera together; a WEBGL renderer is the most flexible
 //const geometry = new RoundedBoxGeometry( 10, 10, 10, 6, 2 )
@@ -14,7 +14,9 @@ const container = document.querySelector('.container')
 const width  = window.innerWidth
 const height = window.innerHeight
 
+
 container.appendChild(renderer.domElement)
+
 //document.body.appendChild(renderer.domElement) //create the canvas element
 renderer.setSize(width, height)
 
@@ -45,6 +47,8 @@ function animate() {
 renderer.render(scene, camera) //if this is not called, nothing will show.
 }
 animate()
+
+
 
 function getRandomNumber(min, max) {
   min = Math.ceil(min)
@@ -88,7 +92,7 @@ container.addEventListener('click', function() {
 
         if (number === 6) {
           setTimeout(function() {
-            alert(`Congrats! You rolled a ${number}.`)
+            alert(`Congratulations! You rolled a ${number} ! 🎁 `)
           }, 100)
         }
 
