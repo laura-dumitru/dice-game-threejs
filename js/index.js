@@ -14,7 +14,6 @@ const container = document.querySelector('.container')
 const width  = window.innerWidth
 const height = window.innerHeight
 
-
 container.appendChild(renderer.domElement)
 
 //document.body.appendChild(renderer.domElement) //create the canvas element
@@ -32,8 +31,7 @@ const materials = [
   new THREE.MeshBasicMaterial({map: loader.load('images/four.png')}),
   new THREE.MeshBasicMaterial({map: loader.load('images/five.png')}),
   new THREE.MeshBasicMaterial({map: loader.load('images/six.png')}),
-];
-
+]
 
 const cube = new THREE.Mesh(geometry, materials)
 scene.add(cube)
@@ -48,16 +46,14 @@ renderer.render(scene, camera) //if this is not called, nothing will show.
 }
 animate()
 
-
-
 function getRandomNumber(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max) + 1 //get a random number between 1-6 would not show me 6, so I added 1. 
+  min = Math.ceil(min) //rounds a number up to the next largest integer
+  max = Math.floor(max) + 1 //The Math.floor() function returns the largest integer less than or equal to a given number.
   return Math.floor(Math.random() * (max - min) + min)
 }
 
 function spin() {
-  let degrees = Math.PI / 16 // 45°
+  let degrees = Math.PI / 16
   cube.rotation.y += degrees
   cube.rotation.x += degrees
 }
@@ -72,7 +68,7 @@ const faces = {
 }
 
 container.addEventListener('click', function() {
-  let countdown = 40; // x ms]
+  let countdown = 40 // milliseconds/ the dice rolls for 4 seconds
   if (!clicked) {
     clicked = true
 
@@ -81,6 +77,7 @@ container.addEventListener('click', function() {
     animation = setInterval(function() {
       countdown --
       if (countdown === 0) {
+        // stop the cube at these co-ordinates
         cube.rotation.y = faces[number][0]
         cube.rotation.x = faces[number][1]
         clearInterval(animation)
@@ -102,7 +99,7 @@ container.addEventListener('click', function() {
   }
 })
 
-window.addEventListener( 'resize', onWindowResize, false );
+window.addEventListener( 'resize', onWindowResize, false ); //add a window resize listener to detect when the browser size has changed
 
 function onWindowResize(){
 
