@@ -3,8 +3,8 @@
 
 let clicked = false
 const scene = new THREE.Scene()
-scene.background = new THREE.Color('#ee7674') // by default this is black
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000 )
+scene.background = new THREE.Color('#fffff') // by default this is black
+const camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 1000 )
 const renderer = new THREE.WebGLRenderer() //combines the scene and camera together; a WEBGL renderer is the most flexible
 //const geometry = new RoundedBoxGeometry( 10, 10, 10, 6, 2 )
 //to display anything with three.js we need three things: scene, camera and renderer, so that we can render the scene with camera.
@@ -20,7 +20,7 @@ container.appendChild(renderer.domElement)
 renderer.setSize(width, height)
 
 const geometry = new THREE.BoxGeometry(1, 1, 1) // size/radius, width, height
-const material = new THREE.MeshBasicMaterial({ color: 0xEEEEEE }) //this is the colour of the 3D material
+//const material = new THREE.MeshBasicMaterial({ color: 0xEEEEEE }) //this is the colour of the 3D material
 //const cube = new THREE.Mesh(geometry, material)
 
 const loader = new THREE.TextureLoader()
@@ -35,7 +35,7 @@ const materials = [
 
 const cube = new THREE.Mesh(geometry, materials)
 scene.add(cube)
-camera.position.z = 8
+camera.position.z = 5;
 
 function animate() { 
 	requestAnimationFrame(animate) // this creates a loop that draws the cube every time the screen refreshes, it pauses when the user navigates to a different tab.
