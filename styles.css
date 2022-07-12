@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&family=Poppins:wght@100;200&display=swap');
+
 body {
   margin: 0;
 }
@@ -7,11 +9,23 @@ margin: 0 auto;
  
 }
 #info {
+ position: absolute;
+font-family:'Montserrat', sans-serif;
+font-size: 16px;
+font-weight: bold;
+top: 200px;
+width: 100%;
+text-align: center;
+z-index: 100;
+display:block;
+}
+
+#message{
 	position: absolute;
-  font-family:'Courier New', Courier, monospace;
-  font-size: 32px;
-  font-weight: bold;
-	top: 200px;
+	font-family:'Montserrat', sans-serif;
+	font-size: 16px;
+	font-weight:bold;
+	top: 760px;
 	width: 100%;
 	text-align: center;
 	z-index: 100;
