@@ -2,7 +2,7 @@
 
 let clicked = false;
 const scene = new THREE.Scene();
-scene.background = new THREE.Color("#fffff"); // by default this is black
+scene.background = new THREE.Color("#9DEDF5"); // by default this is black
 const camera = new THREE.PerspectiveCamera(
   35,
   window.innerWidth / window.innerHeight,
