@@ -1,34 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&family=Poppins:wght@100;200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&family=Poppins:wght@100;200&display=swap");
 
 body {
   margin: 0;
-
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
 }
 
 .container {
-margin: 0 auto;
- 
+  margin: 0 auto;
 }
 #info {
- position: absolute;
-font-family:'Montserrat', sans-serif;
-font-size: 16px;
-font-weight: bold;
-top: 200px;
-width: 100%;
-text-align: center;
-z-index: 100;
-display:block;
+  position: absolute;
+  font-weight: bold;
+  top: 220px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  display: block;
 }
 
-#message{
-	position: absolute;
-	font-family:'Montserrat', sans-serif;
-	font-size: 16px;
-	font-weight:bold;
-	top: 760px;
-	width: 100%;
-	text-align: center;
-	z-index: 100;
-	display:block;
+#message {
+  position: absolute;
+  font-weight: bold;
+  top: 800px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  display: block;
+}
+.clickButton {
+  background-color: #17b3d4;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 6px;
+  position: absolute;
+  left: 45.5%;
+  top: 75%;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
