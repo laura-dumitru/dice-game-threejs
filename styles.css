@@ -22,22 +22,9 @@ body {
 #message {
   position: absolute;
   font-weight: bold;
-  top: 800px;
+  top: 700px;
   width: 100%;
   text-align: center;
   z-index: 100;
   display: block;
-}
-.clickButton {
-  background-color: #17b3d4;
-  border: none;
-  padding: 16px 24px;
-  border-radius: 6px;
-  position: absolute;
-  left: 50%;
-  top: 75%;
-}
-a {
-  text-decoration: none;
-  color: black;
 }
