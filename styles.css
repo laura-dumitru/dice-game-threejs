@@ -12,7 +12,7 @@ body {
 #info {
   position: absolute;
   font-weight: bold;
-  top: 220px;
+  top: 140px;
   width: 100%;
   text-align: center;
   z-index: 100;
@@ -22,7 +22,7 @@ body {
 #message {
   position: absolute;
   font-weight: bold;
-  top: 700px;
+  top: 600px;
   width: 100%;
   text-align: center;
   z-index: 100;

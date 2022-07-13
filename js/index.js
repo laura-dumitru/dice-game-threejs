@@ -41,7 +41,7 @@ const materials = [
 
 const cube = new THREE.Mesh(geometry, materials);
 scene.add(cube);
-camera.position.z = 6;
+camera.position.z = 5;
 
 function animate() {
   requestAnimationFrame(animate); // this creates a loop that draws the cube every time the screen refreshes, it pauses when the user navigates to a different tab.
