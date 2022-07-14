@@ -4,15 +4,20 @@ body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
+  background-color: #9dedf5;
 }
 
 .container {
-  margin: 0 auto;
+  /*display: flex;*/
 }
+
+#threejs {
+}
+
 #info {
   position: absolute;
   font-weight: bold;
-  top: 140px;
+  top: 160px;
   width: 100%;
   text-align: center;
   z-index: 100;
@@ -22,9 +27,15 @@ body {
 #message {
   position: absolute;
   font-weight: bold;
-  top: 600px;
+  top: 800px;
   width: 100%;
   text-align: center;
   z-index: 100;
   display: block;
+}
+
+@media only screen and (max-width: 414px) {
+  #message {
+    top: 700px;
+  }
 }
