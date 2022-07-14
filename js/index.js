@@ -1,26 +1,19 @@
 //import { RoundedBoxGeometry } from './threejs/examples/jsm/geometries/RoundedBoxGeometry.js'
 
-let clicked = false;
-const scene = new THREE.Scene();
-scene.background = new THREE.Color("#9DEDF5"); // by default this is black
-const camera = new THREE.PerspectiveCamera(
-  35,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-const renderer = new THREE.WebGLRenderer(); //combines the scene and camera together; a WEBGL renderer is the most flexible
-//const geometry = new RoundedBoxGeometry( 10, 10, 10, 6, 2 )
-//to display anything with three.js we need three things: scene, camera and renderer, so that we can render the scene with camera.
-// 75 refers to the field of view - the extent of the scene on the display at any given moment. innerWidth / innerHeight is the aspect ration. 0.1, 1000 refers to the near and far clipping plane.
-const container = document.querySelector(".container");
-
 const width = window.innerWidth;
 const height = window.innerHeight;
 
-container.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(35, width / height, 1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true }); // combines the scene and camera together; a WEBGL renderer is the most flexible. Alpha channel means transparency
+//const geometry = new RoundedBoxGeometry( 10, 10, 10, 6, 2 )
+//to display anything with three.js we need three things: scene, camera and renderer, so that we can render the scene with camera.
+// 75 refers to the field of view - the extent of the scene on the display at any given moment. innerWidth / innerHeight is the aspect ration. 0.1, 1000 refers to the near and far clipping plane.
+const container = document.getElementById("threejs"); //.querySelector(".container");
 
-//document.body.appendChild(renderer.domElement) //create the canvas element
+container.appendChild(renderer.domElement); // create the canvas element
+//document.body.appendChild
+
 renderer.setSize(width, height);
 
 const geometry = new THREE.BoxGeometry(1, 1, 1); // size/radius, width, height
@@ -72,6 +65,7 @@ const faces = {
   6: [6.1, 2.9], // 20%
 };
 
+let clicked = false;
 const message = document.getElementById("message");
 
 container.addEventListener("click", function () {
@@ -110,6 +104,11 @@ container.addEventListener("click", function () {
     }, 40); // ms
   }
 });
+
+//if (number === 6,1,5){
+//stop the game
+//},
+//if number === 2,3,4 carry on
 
 window.addEventListener("resize", onWindowResize, false); //add a window resize listener to detect when the browser size has changed
 
