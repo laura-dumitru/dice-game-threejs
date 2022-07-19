@@ -7,17 +7,10 @@ body {
   background-color: #9dedf5;
 }
 
-.container {
-  /*display: flex;*/
-}
-
-#threejs {
-}
-
 #info {
   position: absolute;
   font-weight: bold;
-  top: 160px;
+  top: 140px;
   width: 100%;
   text-align: center;
   z-index: 100;
@@ -27,7 +20,7 @@ body {
 #message {
   position: absolute;
   font-weight: bold;
-  top: 800px;
+  top: 640px;
   width: 100%;
   text-align: center;
   z-index: 100;
