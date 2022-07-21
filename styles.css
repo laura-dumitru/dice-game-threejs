@@ -28,7 +28,14 @@ body {
 }
 
 @media only screen and (max-width: 414px) {
+  #info {
+    top: 300px;
+  }
+
   #message {
-    top: 700px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
   }
 }

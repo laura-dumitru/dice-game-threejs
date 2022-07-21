@@ -6,6 +6,7 @@ const height = window.innerHeight;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(35, width / height, 1, 1000);
 const renderer = new THREE.WebGLRenderer({ alpha: true }); // combines the scene and camera together; a WEBGL renderer is the most flexible. Alpha channel means transparency
+renderer.setPixelRatio(window.devicePixelRatio); //makes my cube images clear
 //const geometry = new RoundedBoxGeometry( 10, 10, 10, 6, 2 )
 //to display anything with three.js we need three things: scene, camera and renderer, so that we can render the scene with camera.
 // 75 refers to the field of view - the extent of the scene on the display at any given moment. innerWidth / innerHeight is the aspect ration. 0.1, 1000 refers to the near and far clipping plane.
