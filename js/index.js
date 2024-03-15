@@ -79,18 +79,15 @@ container.addEventListener("click", function () {
 
     setTimeout(function () {
       if (number === 6) {
-        message.innerHTML =
-          "Congratulations you got 20% off your next purchase!";
+        message.innerHTML = "Congratulations you got 20% off your next purchase!";
       } else if (number === 1) {
-        message.innerHTML =
-          "Congratulations you got 10% off your next purchase!";
+        message.innerHTML = "Congratulations you got 10% off your next purchase!";
       } else if (number === 5) {
-        message.innerHTML =
-          "Congratulations you got 5% off your next purchase!";
+        message.innerHTML = "Congratulations you got 5% off your next purchase!";
       } else {
         message.innerHTML = "Better luck next time!";
       }
-    }, 1700);
+    }, 1500);
 
     animation = setInterval(function () {
       countdown--;
@@ -102,7 +99,7 @@ container.addEventListener("click", function () {
         clicked = false;
       }
       spin();
-    }, 40); // ms
+    }, 25); // ms
   }
 });
 
