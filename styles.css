@@ -39,9 +39,11 @@ h1 {
   h1 {
     top: 0;
   }
+  #message,
+  #info {
+    font-size: 1.2em;
+  }
   #info {
     top: 15%;
-    font-size: 1em;
-    color: blue;
   }
 }
