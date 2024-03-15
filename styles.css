@@ -31,18 +31,15 @@ h1 {
   font-size: 1.5em;
 }
 .container {
+  position: relative;
   cursor: pointer;
 }
 
-@media only screen and (max-width: 414px) {
-  #info {
-    top: 300px;
+@media (max-width: 900px) {
+  h1 {
+    top: 0;
   }
-
-  #message {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    box-sizing: border-box;
+  #info {
+    top: 15%;
   }
 }
