@@ -79,11 +79,11 @@ container.addEventListener("click", function () {
 
     setTimeout(function () {
       if (number === 6) {
-        message.innerHTML = "Congratulations you got 20% off your next purchase!";
+        message.innerHTML = "Congratulations you got 20% off your purchase!";
       } else if (number === 1) {
-        message.innerHTML = "Congratulations you got 10% off your next purchase!";
+        message.innerHTML = "Congratulations you got 10% off your purchase!";
       } else if (number === 5) {
-        message.innerHTML = "Congratulations you got 5% off your next purchase!";
+        message.innerHTML = "Congratulations you got 5% off your purchase!";
       } else {
         message.innerHTML = "Better luck next time!";
       }
